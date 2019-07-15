@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>CKEditor 5 – classic editor build – development sample</title>
+	<title>Testing ckeditor5 with mathpreview plugin</title>
 	<style>
 		body {
 			max-width: 800px;
@@ -10,32 +10,33 @@
 		}
 	</style>
 </head>
+
+
 <body>
+	<h1>Testing ckeditor5 with mathpreview plugin</h1>
+	<pre  style="white-space:normal; "><a href="https://github.com/centaur54dev/ckeditor5-math-preview">Mathpreview plugin</a> for ckeditor5 allows you to preview how a latex math formula will look like, when rendered. It supports MathJax and Katex engines. The plugin works like this:
+		<ul> 
+			<li> The toolbar button f(x) operates as a ON/OFF switch. For the plugin to work the button must be enabled.</li>
+			<li> Enter a formula in latex, enclosed in \[ \] or \( \). For example \[x^2+5x-12=0\]</li>
+			<li> Click on the typed formula. A popup should display it rendered. </li>
+		</ul>
+	</pre>
 
-<h1>CKEditor 5 – classic editor build – development sample</h1>
 
-<div id="editor">
-	<h2>Sample</h2>
+	<div id="editor1" ></div>
 
-	<p>This is an instance of the <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/overview.html#classic-editor">classic editor build</a>.</p>
-
-	<figure class="image">
-		<img src="../tests/manual/sample.jpg" alt="Autumn fields" />
-	</figure>
-
-	<p>You can use this sample to validate whether your <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/development/custom-builds.html">custom build</a> works fine.</p>
-</div>
-
-<script src="../build/ckeditor.js"></script>
-<script>
-	ClassicEditor.create( document.querySelector( '#editor' ) )
-		.then( editor => {
-			window.editor = editor;
-		} )
-		.catch( err => {
-			console.error( err.stack );
-		} );
-</script>
-
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	<script src="https://cdn.jsdelivr.net/gh/centaur54dev/ckeditor5-build-classic@stable/build/ckeditor.js"></script>
+	<script>
+		let editorDiv = document.getElementById("editor1");
+		let editor = ClassicEditor
+	        .create(  editorDiv )
+	        .then( (editor) => {
+	            console.log( "editor1 loaded succesfully");
+	        } )
+	        .catch( error => {	
+	            console.error( error );
+	        } );
+	</script>
 </body>
 </html>
