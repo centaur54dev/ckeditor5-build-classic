@@ -27,6 +27,7 @@ import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
+import MathpreviewPlugin from 'ckeditor5-math-preview/src/mathpreview';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -52,7 +53,8 @@ ClassicEditor.builtinPlugins = [
 	Paragraph,
 	PasteFromOffice,
 	Table,
-	TableToolbar
+	TableToolbar,
+	MathpreviewPlugin
 ];
 
 // Editor configuration.
@@ -70,6 +72,7 @@ ClassicEditor.defaultConfig = {
 			'blockQuote',
 			'insertTable',
 			'mediaEmbed',
+			'mathpreview',
 			'undo',
 			'redo'
 		]
@@ -88,6 +91,10 @@ ClassicEditor.defaultConfig = {
 			'tableRow',
 			'mergeTableCells'
 		]
+	},
+	MathPreview: {
+	//	configuration options for the math-preview plugin
+		engine: 'mathjax'//	or 'katex'
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
